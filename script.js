@@ -25,3 +25,24 @@ function handleNoClick() {
 function handleYesClick() {
     window.location.href = "yes_page.html";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    function createSticker() {
+        const sticker = document.createElement("div");
+        sticker.classList.add("sticker");
+
+        // Random position within the viewport
+        sticker.style.left = Math.random() * window.innerWidth + "px";
+        sticker.style.top = Math.random() * window.innerHeight + "px";
+
+        document.body.appendChild(sticker);
+
+        // Remove after animation completes
+        setTimeout(() => {
+            sticker.remove();
+        }, 3000);
+    }
+
+    // Generate scattered stickers continuously
+    setInterval(createSticker, 500);
+});
